@@ -1,0 +1,18 @@
+cmake_minimum_required(VERSION 3.8)
+
+set(CMAKE_SUPPRESS_REGENERATION true)
+
+project(CoreLib)
+
+set(CMAKE_CONFIGURATION_TYPES Debug Release)
+
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG "${CMAKE_BINARY_DIR}/DEBUG/netcoreapp3.1")
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_DEBUG "${CMAKE_BINARY_DIR}/DEBUG/netcoreapp3.1")
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE "${CMAKE_BINARY_DIR}/RELEASE/netcoreapp3.1")
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_RELEASE "${CMAKE_BINARY_DIR}/RELEASE/netcoreapp3.1")
+
+file(GLOB files *.h *.cpp) 
+
+add_library(CoreLib SHARED ${files})
+
+target_compile_features(CoreLib PUBLIC cxx_std_17)
